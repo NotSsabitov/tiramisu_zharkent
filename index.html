@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiramisu Zharkent - С нами вкуснее!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Обновленные цвета для соответствия розовой палитре главного экрана */
+            --primary: #D2691E; /* Шоколадный (для других секций) */
+            --secondary: #8B4513; /* Седло-коричневый (для других секций) */
+            --accent: #FFC0CB; /* Розовый акцент (для Hero Section) */
+            --dark-pink: #9C1F37; /* Темно-розовый для текста и кнопки */
+            --light: #FFF8DC;
+            --dark: #3E2723;
+            --text: #5D4037;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            background-color: #f9f5f0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        
+        /* Header Styles */
+        header {
+            /* Розовый фон для соответствия hero-section */
+            background: var(--accent); 
+            color: var(--dark);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            /* Уменьшение прозрачности при прокрутке */
+            background: rgba(255, 192, 203, 0.95); 
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 0 15px rgba(139, 69, 19, 0.5);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .logo-text span {
+            color: var(--dark-pink); /* Используем темно-розовый для акцента */
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--dark); /* Темный цвет текста */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary); /* Коричневый подчеркивание */
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--secondary); /* Коричневый цвет при наведении */
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--dark); /* Темная кнопка меню */
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Стили для ГЛАВНОГО ЭКРАНА (.hero-section) --- */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            /* Высота, чтобы секция занимала весь экран */
+            height: 100vh; 
+            /* Сплошной розовый фон как на фото */
+            background-color: var(--accent); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: flex-start; 
+            align-items: center; 
+            text-align: left;
+            color: var(--dark); 
+            padding-top: 80px; 
+            box-sizing: border-box;
+            overflow: hidden; /* Обрезка изображений торта */
+        }
+
+        /* Область для текста и кнопки */
+        .hero-content-wrapper { 
+            position: relative;
+            /* Размещение контента слева, как на фото */
+            margin-left: 10%; 
+            max-width: 500px;
+            z-index: 20; 
+        }
+
+        /* Главный заголовок (CUPCAKE CLASS) */
+        .hero-title-main {
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 700;
+            font-size: 4rem;
+            /* Цвет, похожий на цвет на фото */
+            color: var(--dark-pink); 
+            text-shadow: none;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        /* Подзаголовок (Выпечка и десерты) */
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            opacity: 0.8;
+            /* Стиль 'BAKED GOODS' на логотипе */
+            font-style: italic; 
+            font-weight: 300;
+            color: rgba(62, 39, 35, 0.7); /* Более светлый текст */
+        }
+
+        /* Описание */
+        .hero-description-new {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+            line-height: 1.5;
+            opacity: 0.8;
+        }
+
+        /* Кнопка "SIGN UP" */
+        .signup-button {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--dark-pink); /* Темно-розовый текст */
+            text-decoration: none;
+            border: 2px solid var(--dark-pink); /* Темно-розовая рамка */
+            padding: 15px 40px;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: none;
+            text-transform: uppercase;
+        }
+
+        .signup-button:hover {
+            background-color: var(--dark-pink);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Красивый торт в правой части */
+        .hero-cake-container {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .hero-cake {
+            position: relative;
+            width: 400px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.2));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .cake-layer {
+            position: absolute;
+            border-radius: 10px;
+        }
+
+        .cake-bottom {
+            width: 300px;
+            height: 120px;
+            bottom: 0;
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cake-middle {
+            width: 270px;
+            height: 100px;
+            bottom: 120px;
+            background: linear-gradient(135deg, #DEB887 0%, #F5DEB3 100%);
+            box-shadow: inset 0 -8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cake-top {
+            width: 240px;
+            height: 90px;
+            bottom: 220px;
+            background: linear-gradient(135deg, #FFB6C1 0%, #FFE4E1 100%);
+            box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cake-frosting {
+            position: absolute;
+            width: 320px;
+            height: 40px;
+            bottom: 310px;
+            background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 100%);
+            border-radius: 50% 50% 0 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cake-decoration {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .decoration-1 {
+            top: 40px;
+            left: 80px;
+            animation: sparkle 2s infinite;
+        }
+
+        .decoration-2 {
+            top: 60px;
+            right: 100px;
+            animation: sparkle 2s infinite 0.5s;
+        }
+
+        .decoration-3 {
+            top: 80px;
+            left: 150px;
+            animation: sparkle 2s infinite 1s;
+        }
+
+        .decoration-4 {
+            top: 50px;
+            right: 150px;
+            animation: sparkle 2s infinite 1.5s;
+        }
+
+        .cake-topper {
+            position: absolute;
+            top: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFEC8B 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #FF69B4;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* --- КОНЕЦ СТИЛЕЙ ГЛАВНОГО ЭКРАНА --- */
+        
+        /* 3D Cake Section - УДАЛЕНО */
+        
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-1 {
+        background-image: url('cake.png');
+        background-size: cover;
+        background-position: center;
+        }
+
+        .product-2 {
+        background-image: url('пироженые.png');
+        background-size: cover;
+        background-position: center;
+        }
+
+        .product-3 {
+        background-image: url('дессерт.png');
+        background-size: cover;
+        background-position: center;
+   }
+
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        /* Locations Section */
+        .locations {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .location-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .location-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .location-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        .location-card p {
+            margin-bottom: 10px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #8B4513, #D2691E);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
+        }
+        
+        .footer-links h4 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            /* Старые стили .hero убраны */
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                /* Добавление стилей для мобильного меню */
+                flex-direction: column; 
+                position: absolute;
+                top: 80px; /* Отступ от шапки */
+                right: 0;
+                background: rgba(255, 192, 203, 0.95);
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                box-shadow: var(--shadow);
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            nav a {
+                color: var(--dark);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            /* Размещение контента на мобильном телефоне */
+            .hero-content-wrapper {
+                margin-left: 0;
+                left: 50%;
+                top: 50%; 
+                transform: translate(-50%, -50%);
+                align-items: center;
+                text-align: center;
+                max-width: 90%;
+            }
+
+            .hero-title-main {
+                font-size: 3rem;
+            }
+
+            .hero-description-new {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+
+            /* Адаптация торта для мобильных устройств */
+            .hero-cake-container {
+                width: 100%;
+                height: 40%;
+                top: 60%;
+                opacity: 0.7;
+            }
+
+            .hero-cake {
+                width: 250px;
+                height: 350px;
+            }
+
+            .cake-bottom {
+                width: 200px;
+                height: 80px;
+            }
+
+            .cake-middle {
+                width: 180px;
+                height: 70px;
+                bottom: 80px;
+            }
+
+            .cake-top {
+                width: 160px;
+                height: 60px;
+                bottom: 150px;
+            }
+
+            .cake-frosting {
+                width: 220px;
+                height: 30px;
+                bottom: 210px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/avatar.jpeg" alt="Tiramisu Zharkent" class="logo-img">
+                <div class="logo-text">tiramisu_<span>zharkent</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#products">Продукция</a></li>
+                    <li><a href="#locations">Локации</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero-section" id="home">
+        <div class="hero-content-wrapper">
+            <h1 class="hero-title-main">С нами вкуснее!</h1>
+            <p class="hero-subtitle">ВЫПЕЧКА</p>
+            <p class="hero-description-new">
+                ТОРТЫ | ПИРОЖНЫЕ | ЖАРКЕНТ ✨<br>
+                изысканные десерты.
+            </p>
+            
+            <a href="#products" class="signup-button" aria-label="Посмотреть продукцию">
+                посмотреть
+            </a>
+        </div>
+        
+        <!-- Красивый торт в правой части -->
+        <div class="hero-cake-container">
+            <div class="hero-cake">
+                <div class="cake-layer cake-bottom"></div>
+                <div class="cake-layer cake-middle"></div>
+                <div class="cake-layer cake-top"></div>
+                <div class="cake-frosting"></div>
+                <div class="cake-decoration decoration-1"></div>
+                <div class="cake-decoration decoration-2"></div>
+                <div class="cake-decoration decoration-3"></div>
+                <div class="cake-decoration decoration-4"></div>
+                <div class="cake-topper">
+                    <i class="fas fa-crown"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Наша продукция</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img product-1"></div>
+                    <div class="product-content">
+                        <h3>Торты</h3>
+                        <p>Изысканные торты ручной работы для ваших праздников и особых моментов. Мы создаем уникальные десерты, которые поражают не только вкусом, но и внешним видом.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img product-2"></div>
+                    <div class="product-content">
+                        <h3>Пирожные</h3>
+                        <p>Нежные и воздушные пирожные, которые тают во рту. Широкий ассортимент от классических вариантов до авторских рецептов.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img product-3"></div>
+                    <div class="product-content">
+                        <h3>Десерты</h3>
+                        <p>Разнообразные десерты для истинных гурманов. Тирамису, чизкейки, макаруны и многое другое для вашего удовольствия.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="locations" id="locations">
+        <div class="container">
+            <h2 class="section-title">Наши локации</h2>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Пащенко 15</h3>
+                    <p><i class="fas fa-phone"></i> +77072433791</p>
+                    <p>Уютная столовая в центре города с широким ассортиментом свежей выпечки и десертов.</p>
+                </div>
+                <div class="location-card">
+                    <div class="location-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>ТЦ «Алтын»</h3>
+                    <p><i class="fas fa-phone"></i> +77475555757</p>
+                    <p>Наш филиал в торговом центре «Алтын» предлагает все самое вкусное для вашего стола.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="section-title">Свяжитесь с нами</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Адреса</h3>
+                        <p>Пащенко 15</p>
+                        <p>ТЦ «Алтын»</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3>Телефоны</h3>
+                        <p>+77072433791</p>
+                        <p>+77475555757</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Социальные сети</h3>
+                        <div class="social-links">
+                            <a href="https://api.whatsapp.com/send?phone=77072433791" class="social-link" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://www.instagram.com/tiramisu_zharkent/" class="social-link" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container" style="width:100%; height:400px;">
+                <iframe
+                    src="https://yandex.kz/map-widget/v1/-/CLvtj64l"
+                    style="width:100%; height:100%; border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">tiramisu_<span>zharkent</span></div>
+                    <p>С нами вкуснее! Мы создаем неповторимые десерты, которые дарят радость и удовольствие нашим клиентам.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Быстрые ссылки</h4>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#products">Продукция</a></li>
+                        <li><a href="#locations">Локации</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Пащенко 15</li>
+                        <li><i class="fas fa-phone"></i> +77072433791</li>
+                        <li><i class="fas fa-shopping-cart"></i> ТЦ «Алтын»</li>
+                        <li><i class="fas fa-phone"></i> +77475555757</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Tiramisu Zharkent. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            // Переключаем display между 'flex' и 'none'
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                // Устанавливаем display: flex, но только если ширина экрана <= 768px
+                if (window.innerWidth <= 768) {
+                    nav.style.display = 'flex';
+                }
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Вычитаем высоту фиксированной шапки (80px)
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, 
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        nav.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // 3D cake animation on scroll - УДАЛЕНА
+
+        // Product card hover effects
+        const productCards = document.querySelectorAll('.product-card');
+        
+        productCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
