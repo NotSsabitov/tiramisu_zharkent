@@ -10,11 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* Обновленные цвета для соответствия розовой палитре главного экрана */
-            --primary: #D2691E; /* Шоколадный (для других секций) */
-            --secondary: #8B4513; /* Седло-коричневый (для других секций) */
-            --accent: #FFC0CB; /* Розовый акцент (для Hero Section) */
-            --dark-pink: #9C1F37; /* Темно-розовый для текста и кнопки */
+            --primary: #D2691E;
+            --secondary: #8B4513;
+            --accent: #FFC0CB;
+            --dark-pink: #9C1F37;
             --light: #FFF8DC;
             --dark: #3E2723;
             --text: #5D4037;
@@ -49,11 +48,9 @@
             padding: 0 20px;
         }
         
-        
         /* Header Styles */
         header {
-            /* Розовый фон для соответствия hero-section */
-            background: var(--accent); 
+            background: var(--accent);
             color: var(--dark);
             padding: 20px 0;
             position: fixed;
@@ -66,8 +63,7 @@
         
         header.scrolled {
             padding: 10px 0;
-            /* Уменьшение прозрачности при прокрутке */
-            background: rgba(255, 192, 203, 0.95); 
+            background: rgba(255, 192, 203, 0.95);
         }
         
         .header-container {
@@ -99,7 +95,7 @@
         }
         
         .logo-text span {
-            color: var(--dark-pink); /* Используем темно-розовый для акцента */
+            color: var(--dark-pink);
         }
         
         nav ul {
@@ -109,7 +105,7 @@
         }
         
         nav a {
-            color: var(--dark); /* Темный цвет текста */
+            color: var(--dark);
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
@@ -124,12 +120,12 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: var(--secondary); /* Коричневый подчеркивание */
+            background-color: var(--secondary);
             transition: var(--transition);
         }
         
         nav a:hover {
-            color: var(--secondary); /* Коричневый цвет при наведении */
+            color: var(--secondary);
         }
         
         nav a:hover:after {
@@ -140,53 +136,52 @@
             display: none;
             background: none;
             border: none;
-            color: var(--dark); /* Темная кнопка меню */
+            color: var(--dark);
             font-size: 1.5rem;
             cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            transition: var(--transition);
         }
 
-        /* --- Стили для ГЛАВНОГО ЭКРАНА (.hero-section) --- */
+        .mobile-menu-btn:hover {
+            background: rgba(0,0,0,0.1);
+        }
+
+        /* Hero Section */
         .hero-section {
             position: relative;
             width: 100%;
-            /* Высота, чтобы секция занимала весь экран */
-            height: 100vh; 
-            /* Сплошной розовый фон как на фото */
-            background-color: var(--accent); 
-            background-size: cover;
-            background-position: center;
+            height: 100vh;
+            background-color: var(--accent);
             display: flex;
-            justify-content: flex-start; 
-            align-items: center; 
+            justify-content: flex-start;
+            align-items: center;
             text-align: left;
-            color: var(--dark); 
-            padding-top: 80px; 
+            color: var(--dark);
+            padding-top: 80px;
             box-sizing: border-box;
-            overflow: hidden; /* Обрезка изображений торта */
+            overflow: hidden;
         }
 
-        /* Область для текста и кнопки */
-        .hero-content-wrapper { 
+        .hero-content-wrapper {
             position: relative;
-            /* Размещение контента слева, как на фото */
-            margin-left: 10%; 
+            margin-left: 10%;
             max-width: 500px;
-            z-index: 20; 
+            z-index: 20;
         }
 
-        /* Главный заголовок (CUPCAKE CLASS) */
         .hero-title-main {
-            font-family: 'Montserrat', sans-serif; 
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 4rem;
-            /* Цвет, похожий на цвет на фото */
-            color: var(--dark-pink); 
+            color: var(--dark-pink);
             text-shadow: none;
             margin-bottom: 5px;
             line-height: 1;
         }
 
-        /* Подзаголовок (Выпечка и десерты) */
         .hero-subtitle {
             font-family: 'Montserrat', sans-serif;
             font-weight: 400;
@@ -194,13 +189,11 @@
             color: var(--dark);
             margin-bottom: 25px;
             opacity: 0.8;
-            /* Стиль 'BAKED GOODS' на логотипе */
-            font-style: italic; 
+            font-style: italic;
             font-weight: 300;
-            color: rgba(62, 39, 35, 0.7); /* Более светлый текст */
+            color: rgba(62, 39, 35, 0.7);
         }
 
-        /* Описание */
         .hero-description-new {
             font-family: 'Montserrat', sans-serif;
             font-weight: 400;
@@ -211,13 +204,12 @@
             opacity: 0.8;
         }
 
-        /* Кнопка "SIGN UP" */
         .signup-button {
             display: inline-block;
             background-color: transparent;
-            color: var(--dark-pink); /* Темно-розовый текст */
+            color: var(--dark-pink);
             text-decoration: none;
-            border: 2px solid var(--dark-pink); /* Темно-розовая рамка */
+            border: 2px solid var(--dark-pink);
             padding: 15px 40px;
             border-radius: 5px;
             font-family: 'Montserrat', sans-serif;
@@ -378,10 +370,6 @@
             }
         }
 
-        /* --- КОНЕЦ СТИЛЕЙ ГЛАВНОГО ЭКРАНА --- */
-        
-        /* 3D Cake Section - УДАЛЕНО */
-        
         /* Products Section */
         .products {
             padding: 100px 0;
@@ -432,24 +420,23 @@
         }
         
         .product-1 {
-        background-image: url('cake.png');
-        background-size: cover;
-        background-position: center;
+            background-image: url('cake.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .product-2 {
-        background-image: url('пироженые.png');
-        background-size: cover;
-        background-position: center;
+            background-image: url('пироженые.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .product-3 {
-        background-image: url('дессерт.png');
-        background-size: cover;
-        background-position: center;
-   }
+            background-image: url('дессерт.png');
+            background-size: cover;
+            background-position: center;
+        }
 
-        
         .product-content {
             padding: 20px;
         }
@@ -567,17 +554,6 @@
             box-shadow: var(--shadow);
         }
         
-        .map-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #8B4513, #D2691E);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-        
         /* Footer */
         footer {
             background: var(--dark);
@@ -631,115 +607,605 @@
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+
+        /* ========================= */
+        /* МОБИЛЬНАЯ АДАПТАЦИЯ */
+        /* ========================= */
+
+        /* Общие исправления контейнера */
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 12px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            #home, #products, #locations, #contact {
+                scroll-margin-top: 65px;
             }
         }
-        
-        /* Responsive Styles */
+
+        /* Планшетная версия */
         @media (max-width: 992px) {
-            /* Старые стили .hero убраны */
+            .hero-title-main {
+                font-size: 3.2rem;
+            }
+            
+            .hero-content-wrapper {
+                margin-left: 5%;
+                max-width: 450px;
+            }
+            
+            .hero-cake {
+                width: 320px;
+                height: 400px;
+            }
+            
+            .cake-bottom {
+                width: 240px;
+                height: 100px;
+            }
+            
+            .cake-middle {
+                width: 210px;
+                height: 80px;
+                bottom: 100px;
+            }
+            
+            .cake-top {
+                width: 180px;
+                height: 70px;
+                bottom: 180px;
+            }
+            
+            .cake-frosting {
+                width: 260px;
+                height: 35px;
+                bottom: 250px;
+            }
         }
-        
+
+        /* Мобильная версия */
         @media (max-width: 768px) {
+            /* Header */
+            header {
+                padding: 15px 0;
+            }
+            
+            .header-container {
+                padding: 0 12px;
+            }
+            
+            .logo {
+                gap: 10px;
+            }
+            
+            .logo-img {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            
             nav ul {
                 display: none;
-                /* Добавление стилей для мобильного меню */
-                flex-direction: column; 
-                position: absolute;
-                top: 80px; /* Отступ от шапки */
+                flex-direction: column;
+                position: fixed;
+                top: 75px;
+                left: 0;
                 right: 0;
-                background: rgba(255, 192, 203, 0.95);
+                background: rgba(255, 192, 203, 0.98);
                 width: 100%;
                 text-align: center;
-                padding: 10px 0;
+                padding: 20px 0;
                 box-shadow: var(--shadow);
+                z-index: 999;
+                gap: 0;
+            }
+            
+            nav ul.active {
+                display: flex;
             }
             
             nav ul li {
-                margin: 10px 0;
+                margin: 12px 0;
             }
             
             nav a {
-                color: var(--dark);
+                font-size: 1.1rem;
+                padding: 10px 0;
+                display: block;
             }
 
             .mobile-menu-btn {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
-            
-            /* Размещение контента на мобильном телефоне */
+
+            /* Hero Section */
+            .hero-section {
+                height: 85vh;
+                min-height: 600px;
+                padding-top: 70px;
+                justify-content: center;
+                text-align: center;
+            }
+
             .hero-content-wrapper {
                 margin-left: 0;
-                left: 50%;
-                top: 50%; 
-                transform: translate(-50%, -50%);
-                align-items: center;
-                text-align: center;
                 max-width: 90%;
+                padding: 0 15px;
             }
 
             .hero-title-main {
-                font-size: 3rem;
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
             }
 
             .hero-description-new {
                 font-size: 1rem;
-                margin-bottom: 20px;
+                margin-bottom: 25px;
+                line-height: 1.6;
             }
 
-            /* Адаптация торта для мобильных устройств */
+            .signup-button {
+                padding: 12px 30px;
+                font-size: 0.9rem;
+            }
+
+            /* Торт для мобильных */
             .hero-cake-container {
                 width: 100%;
                 height: 40%;
-                top: 60%;
-                opacity: 0.7;
+                top: 55%;
+                opacity: 0.8;
             }
 
             .hero-cake {
                 width: 250px;
-                height: 350px;
+                height: 320px;
             }
 
             .cake-bottom {
-                width: 200px;
-                height: 80px;
+                width: 180px;
+                height: 70px;
             }
 
             .cake-middle {
-                width: 180px;
-                height: 70px;
-                bottom: 80px;
+                width: 150px;
+                height: 60px;
+                bottom: 70px;
             }
 
             .cake-top {
-                width: 160px;
-                height: 60px;
-                bottom: 150px;
+                width: 130px;
+                height: 50px;
+                bottom: 130px;
             }
 
             .cake-frosting {
-                width: 220px;
-                height: 30px;
-                bottom: 210px;
+                width: 200px;
+                height: 25px;
+                bottom: 180px;
             }
-        }
-        
-        @media (max-width: 576px) {
+
+            .cake-decoration {
+                width: 20px;
+                height: 20px;
+            }
+
+            .cake-topper {
+                width: 35px;
+                height: 35px;
+                font-size: 1.1rem;
+            }
+
+            /* Products Section */
+            .products {
+                padding: 60px 0;
+            }
+            
             .section-title {
                 font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+            
+            .section-title:after {
+                width: 80px;
+                bottom: -12px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                justify-items: center;
+            }
+            
+            .product-card {
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            
+            .product-img {
+                height: 180px;
+            }
+            
+            .product-content {
+                padding: 15px;
+            }
+            
+            .product-content h3 {
+                font-size: 1.3rem;
+            }
+
+            /* Locations Section */
+            .locations {
+                padding: 60px 0;
+            }
+            
+            .locations-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .location-card {
+                padding: 20px;
+            }
+            
+            .location-icon {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+
+            /* Contact Section */
+            .contact {
+                padding: 60px 0;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .contact-item {
+                gap: 12px;
+            }
+            
+            .contact-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+                flex-shrink: 0;
+            }
+            
+            .map-container {
+                height: 300px;
+                order: -1;
+            }
+
+            /* Footer */
+            footer {
+                padding: 40px 0 15px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                font-size: 1.6rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* Маленькие смартфоны */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            /* Header */
+            .header-container {
+                padding: 0 10px;
+            }
+            
+            .logo {
+                gap: 8px;
+            }
+            
+            .logo-img {
+                width: 40px;
+                height: 40px;
             }
             
             .logo-text {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
+            }
+            
+            .mobile-menu-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 1.3rem;
+            }
+
+            /* Hero Section */
+            .hero-section {
+                height: 80vh;
+                min-height: 500px;
+                padding-top: 65px;
+            }
+
+            .hero-content-wrapper {
+                max-width: 95%;
+            }
+
+            .hero-title-main {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-description-new {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+
+            .signup-button {
+                padding: 10px 25px;
+                font-size: 0.85rem;
+            }
+
+            /* Торт для очень маленьких экранов */
+            .hero-cake-container {
+                height: 35%;
+                top: 60%;
+            }
+
+            .hero-cake {
+                width: 200px;
+                height: 250px;
+            }
+
+            .cake-bottom {
+                width: 140px;
+                height: 55px;
+            }
+
+            .cake-middle {
+                width: 120px;
+                height: 45px;
+                bottom: 55px;
+            }
+
+            .cake-top {
+                width: 100px;
+                height: 40px;
+                bottom: 100px;
+            }
+
+            .cake-frosting {
+                width: 160px;
+                height: 20px;
+                bottom: 140px;
+            }
+
+            .cake-decoration {
+                width: 15px;
+                height: 15px;
+            }
+
+            .decoration-1 {
+                top: 30px;
+                left: 50px;
+            }
+
+            .decoration-2 {
+                top: 45px;
+                right: 60px;
+            }
+
+            .decoration-3 {
+                top: 60px;
+                left: 80px;
+            }
+
+            .decoration-4 {
+                top: 40px;
+                right: 80px;
+            }
+
+            .cake-topper {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+
+            /* Products Section */
+            .products {
+                padding: 50px 0;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+            
+            .product-card {
+                max-width: 280px;
+            }
+            
+            .product-img {
+                height: 160px;
+            }
+            
+            .product-content {
+                padding: 12px;
+            }
+            
+            .product-content h3 {
+                font-size: 1.2rem;
+            }
+            
+            .product-content p {
+                font-size: 0.9rem;
+            }
+
+            /* Locations Section */
+            .locations {
+                padding: 50px 0;
+            }
+            
+            .location-card {
+                padding: 15px;
+            }
+            
+            .location-icon {
+                font-size: 1.8rem;
+            }
+            
+            .location-card h3 {
+                font-size: 1.2rem;
+            }
+
+            /* Contact Section */
+            .contact {
+                padding: 50px 0;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            
+            .map-container {
+                height: 250px;
+            }
+
+            /* Footer */
+            footer {
+                padding: 30px 0 10px;
+            }
+            
+            .footer-logo {
+                font-size: 1.4rem;
+            }
+            
+            .footer-links h4 {
+                font-size: 1.1rem;
+            }
+            
+            .footer-links li {
+                font-size: 0.9rem;
+            }
+            
+            .copyright {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Очень маленькие экраны */
+        @media (max-width: 360px) {
+            .container {
+                padding: 0 8px;
+            }
+            
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            
+            .hero-title-main {
+                font-size: 1.8rem;
+            }
+            
+            .hero-cake {
+                width: 180px;
+                height: 220px;
+            }
+            
+            .signup-button {
+                padding: 8px 20px;
+                font-size: 0.8rem;
+            }
+            
+            .product-card {
+                max-width: 260px;
+            }
+        }
+
+        /* Ландшафтная ориентация */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero-section {
+                height: auto;
+                min-height: 100vh;
+                padding: 100px 0 50px;
+            }
+            
+            .hero-content-wrapper {
+                margin-top: 0;
+            }
+            
+            .hero-cake-container {
+                height: 70%;
+                top: 50%;
+            }
+        }
+
+        /* Поддержка темной темы */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+                color: #e0e0e0;
+            }
+            
+            .products, .contact {
+                background: #2d2d2d;
+            }
+            
+            .product-card, .location-card {
+                background: #3d3d3d;
+                color: #e0e0e0;
+            }
+            
+            .product-card h3, .location-card h3 {
+                color: #ffffff;
+            }
+        }
+
+        /* Улучшение доступности для касаний */
+        @media (pointer: coarse) {
+            .signup-button, .social-link, .mobile-menu-btn {
+                min-height: 44px;
+            }
+            
+            nav a {
+                padding: 8px 0;
             }
         }
     </style>
@@ -759,7 +1225,7 @@
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Открыть меню">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -850,61 +1316,61 @@
         </div>
     </section>
 
-<section class="contact" id="contact">
-    <div class="container">
-        <h2 class="section-title">Свяжитесь с нами</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Адреса</h3>
+                            <p>Пащенко 15</p>
+                            <p>ТЦ «Алтын»</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3>Адреса</h3>
-                        <p>Пащенко 15</p>
-                        <p>ТЦ «Алтын»</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Телефоны</h3>
+                            <p>+77072433791</p>
+                            <p>+77475555757</p>
+                        </div>
                     </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div>
-                        <h3>Телефоны</h3>
-                        <p>+77072433791</p>
-                        <p>+77475555757</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-share-alt"></i>
-                    </div>
-                    <div>
-                        <h3>Социальные сети</h3>
-                        <div class="social-links">
-                            <a href="https://api.whatsapp.com/send?phone=77072433791" class="social-link" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="https://www.instagram.com/tiramisu_zharkent/" class="social-link" target="_blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Социальные сети</h3>
+                            <div class="social-links">
+                                <a href="https://api.whatsapp.com/send?phone=77072433791" class="social-link" target="_blank" aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="https://www.instagram.com/tiramisu_zharkent/" class="social-link" target="_blank" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="map-container" style="width:100%; height:400px;">
-                <iframe
-                    src="https://yandex.kz/map-widget/v1/-/CLvtj64l"
-                    style="width:100%; height:100%; border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                <div class="map-container">
+                    <iframe
+                        src="https://yandex.kz/map-widget/v1/-/CLvtj64l"
+                        style="width:100%; height:100%; border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Карта расположения Tiramisu Zharkent">
+                    </iframe>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
     <footer>
         <div class="container">
@@ -954,14 +1420,30 @@
         const nav = document.querySelector('nav ul');
         
         mobileMenuBtn.addEventListener('click', function() {
-            // Переключаем display между 'flex' и 'none'
-            if (nav.style.display === 'flex') {
-                nav.style.display = 'none';
-            } else {
-                // Устанавливаем display: flex, но только если ширина экрана <= 768px
+            nav.classList.toggle('active');
+            this.setAttribute('aria-label', 
+                nav.classList.contains('active') ? 'Закрыть меню' : 'Открыть меню'
+            );
+        });
+
+        // Close menu when clicking on links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
-                    nav.style.display = 'flex';
+                    nav.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-label', 'Открыть меню');
                 }
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth <= 768 && 
+                !event.target.closest('nav') && 
+                !event.target.closest('.mobile-menu-btn') &&
+                nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-label', 'Открыть меню');
             }
         });
 
@@ -975,33 +1457,42 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    // Вычитаем высоту фиксированной шапки (80px)
+                    const headerHeight = document.getElementById('header').offsetHeight;
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80, 
+                        top: targetElement.offsetTop - headerHeight,
                         behavior: 'smooth'
                     });
-                    
-                    // Close mobile menu if open
-                    if (window.innerWidth <= 768) {
-                        nav.style.display = 'none';
-                    }
                 }
             });
         });
-
-        // 3D cake animation on scroll - УДАЛЕНА
 
         // Product card hover effects
         const productCards = document.querySelectorAll('.product-card');
         
         productCards.forEach(card => {
             card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
+                if (window.innerWidth > 768) {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                }
             });
             
             card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+                if (window.innerWidth > 768) {
+                    this.style.transform = 'translateY(0) scale(1)';
+                }
             });
+        });
+
+        // Handle resize events
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                nav.classList.remove('active');
+            }
+        });
+
+        // Prevent horizontal scroll on mobile
+        window.addEventListener('load', function() {
+            document.body.style.overflowX = 'hidden';
         });
     </script>
 </body>
